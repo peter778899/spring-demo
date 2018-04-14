@@ -1,7 +1,7 @@
 package com.tx.demo;
 
 /**
- * Created by 13292 on 2018/4/11.
+ * Created by peter.
  */
 public class HelloWorld {
     private String message;
@@ -17,6 +17,7 @@ public class HelloWorld {
     public void init(){
         System.out.println("Bean is going through init.");
     }
+
     public void destroy(){
         System.out.println("Bean will destroy now.");
     }

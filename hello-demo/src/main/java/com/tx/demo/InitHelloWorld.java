@@ -4,7 +4,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
 /**
- * Created by 13292 on 2018/4/11.
+ * Created by peter.
  */
 public class InitHelloWorld implements BeanPostProcessor {
     @Override
