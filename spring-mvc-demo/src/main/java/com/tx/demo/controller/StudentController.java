@@ -1,8 +1,10 @@
 package com.tx.demo.controller;
 
+import com.tx.demo.exceptions.SpringException;
 import com.tx.demo.pojo.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,10 +19,21 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/addStudent", method = RequestMethod.POST)
-    public String addStudent(@ModelAttribute("SpringWeb")Student student, ModelMap model) {
+    @ExceptionHandler({SpringException.class})
+    public String addStudent(@ModelAttribute("HelloWeb")Student student, ModelMap model) {
+
+        if(student.getName().length() < 5 ){
+            throw new SpringException("Given name is too short");
+        }
         model.addAttribute("name", student.getName());
+
+        if( student.getAge() < 10 ){
+            throw new SpringException("Given age is too low");
+        }
         model.addAttribute("age", student.getAge());
+
         model.addAttribute("id", student.getId());
+
         return "result";
     }
 }
