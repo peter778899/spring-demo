@@ -11,6 +11,8 @@
     <module>annotation-demo</module>
       <module>spring-mvc-demo</module>
     <module>spring-mvc-demo</module>
+    <module>annotation-demo</module>
+      <module>annotation-demo</module>
   </modules>
   <packaging>pom</packaging>
 
